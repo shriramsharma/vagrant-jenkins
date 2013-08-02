@@ -19,13 +19,10 @@ exec { "apt-get update jenkins":
   require => Exec["jenkins_command_1"],
 }
 
-exec { "apt-get install jenkins":
-  command => "/usr/bin/apt-get install jenkins",
+package { "jenkins":
+  ensure => "present",
   require => Exec["apt-get update jenkins"],
-  user => root,
 }
-
-
 
 
 }
